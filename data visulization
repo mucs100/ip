@@ -1,30 +1,28 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load dataset (replace with your dataset loading code)
 data = pd.read_csv('fruit_data_with_colours.csv')
 
-# Display the first few rows of the dataset
 print("First few rows of the dataset:")
 print(data.head())
 
 plt.figure(figsize=(12, 6))
 
-# Plot 1: Histogram
+
 plt.subplot(2, 2, 1)
 plt.hist(data['width'], bins=10, edgecolor='k')
 plt.title('Histogram of fruit width')
 plt.xlabel('Width')
 plt.ylabel('Frequency')
 
-# Plot 2: Scatter plot
+
 plt.subplot(2, 2, 2)
 plt.scatter(data['width'], data['height'])
 plt.title('Scatter plot of width vs. height')
 plt.xlabel('Width')
 plt.ylabel('Height')
 
-# Plot 3: Box plot
+
 plt.subplot(2, 2, 3)
 unique_masses = data['mass'].unique()
 mass_data = [data[data['mass'] == mass]['color_score'] for mass in unique_masses]
@@ -33,7 +31,7 @@ plt.title('Box plot of mass level vs. color_score')
 plt.xlabel('Mass')
 plt.ylabel('Color Score')
 
-# Plot 4: Count plot
+
 plt.subplot(2, 2, 4)
 fruit_counts = data['fruit_name'].value_counts()
 plt.bar(fruit_counts.index, fruit_counts.values)
@@ -41,8 +39,8 @@ plt.title('Count of fruit_name')
 plt.xlabel('Fruit Name')
 plt.ylabel('Count')
 
-# Adjust layout
+
 plt.tight_layout()
 
-# Show plots
+
 plt.show()
